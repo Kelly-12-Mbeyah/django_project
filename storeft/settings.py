@@ -31,12 +31,12 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'debug_toolbar',
     'django.contrib.admin',     #admin interface for managing data
     'django.contrib.auth',        #authenticating users
     'django.contrib.contenttypes',  
     'django.contrib.messages', #display one time notification to users
     'django.contrib.staticfiles', # sattic files such as the images,css files
-    'debug_toolbar',
     'playground'
     
 ]
@@ -108,6 +108,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+def show_toolbar(request):
+  return False
+DEBUG_TOOLBAR_CONFIG = {
+  "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
